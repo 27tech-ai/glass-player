@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="Glass Player — the lightest complete M3U / M3U8 player. Liquid Glass design, TV remote support, works in any browser.">
+<meta property="og:title" content="Glass Player">
+<meta property="og:description" content="The lightest complete M3U / M3U8 player — Liquid Glass, TV-first, no installs.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="icon-512.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Glass Player">
+<title>Glass Player</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-load" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M268 112l144 144-144 144M392 256H100"/></symbol>
+<symbol id="i-file" viewBox="0 0 512 512"><path d="M64 192v-72a40 40 0 0140-40h75.89a40 40 0 0122.19 6.72l27.84 18.56a40 40 0 0022.19 6.72H408a40 40 0 0140 40v40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M479.9 226.55L463.68 392a40 40 0 01-39.93 40H88.25a40 40 0 01-39.93-40L32.1 226.55A32 32 0 0164 192h384.1a32 32 0 0131.8 34.55z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></symbol>
+<symbol id="i-home" viewBox="0 0 512 512"><path d="M80 212v236a16 16 0 0016 16h96V328a24 24 0 0124-24h80a24 24 0 0124 24v136h96a16 16 0 0016-16V212" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path d="M480 256L266.89 52c-5-5.28-16.69-5.34-21.78 0L32 256M400 179V64h-48v69" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></symbol>
+<symbol id="i-list" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M160 144h288M160 256h288M160 368h288"/><circle cx="80" cy="144" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="80" cy="256" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="80" cy="368" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></symbol>
+<symbol id="i-settings" viewBox="0 0 512 512"><path d="M262.29 192.31a64 64 0 1057.4 57.4 64.13 64.13 0 00-57.4-57.4zM416.39 256a154.34 154.34 0 01-1.53 20.79l45.21 35.46a10.81 10.81 0 012.45 13.75l-42.77 74a10.81 10.81 0 01-13.14 4.59l-44.9-18.08a16.11 16.11 0 00-15.17 1.75A164.48 164.48 0 01325 400.8a15.94 15.94 0 00-8.82 12.14l-6.73 47.89a11.08 11.08 0 01-10.68 9.17h-85.54a11.11 11.11 0 01-10.69-8.87l-6.72-47.82a16.07 16.07 0 00-9-12.22 155.3 155.3 0 01-21.46-12.57 16 16 0 00-15.11-1.71l-44.89 18.07a10.81 10.81 0 01-13.14-4.58l-42.77-74a10.8 10.8 0 012.45-13.75l38.21-30a16.05 16.05 0 006-14.08c-.36-4.17-.58-8.33-.58-12.5s.21-8.27.58-12.35a16 16 0 00-6.07-13.94l-38.19-30A10.81 10.81 0 0149.48 186l42.77-74a10.81 10.81 0 0113.14-4.59l44.9 18.08a16.11 16.11 0 0015.17-1.75A164.48 164.48 0 01187 111.2a15.94 15.94 0 008.82-12.14l6.73-47.89A11.08 11.08 0 01213.23 42h85.54a11.11 11.11 0 0110.69 8.87l6.72 47.82a16.07 16.07 0 009 12.22 155.3 155.3 0 0121.46 12.57 16 16 0 0015.11 1.71l44.89-18.07a10.81 10.81 0 0113.14 4.58l42.77 74a10.8 10.8 0 01-2.45 13.75l-38.21 30a16.05 16.05 0 00-6.05 14.08c.33 4.14.55 8.3.55 12.47z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></symbol>
+<symbol id="i-expand" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M432 320v112H320M421.8 421.77L304 304M80 192V80h112M90.2 90.23L208 208M320 80h112v112M421.77 90.2L304 208M192 432H80V320M90.23 421.8L208 304"/></symbol>
+<symbol id="i-close" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"/></symbol>
+<symbol id="i-all" viewBox="0 0 512 512"><rect x="48" y="48" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="288" y="48" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="48" y="288" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><rect x="288" y="288" width="176" height="176" rx="20" ry="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></symbol>
+<symbol id="i-star" viewBox="0 0 512 512"><path fill="currentColor" d="M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z"/></symbol>
+<symbol id="i-recent" viewBox="0 0 512 512"><path d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 128v144h96"/></symbol>
+<symbol id="i-more" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/></symbol>
+<symbol id="i-moon" viewBox="0 0 512 512"><path d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></symbol>
+<symbol id="i-sun" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M256 48v48M256 416v48M403.08 108.92l-33.94 33.94M142.86 369.14l-33.94 33.94M464 256h-48M96 256H48M403.08 403.08l-33.94-33.94M142.86 142.86l-33.94-33.94"/><circle cx="256" cy="256" r="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"/></symbol>
+<symbol id="i-trash" viewBox="0 0 512 512"><path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352"/><path d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></symbol>
+<symbol id="i-link" viewBox="0 0 512 512"><path d="M208 352h-64a96 96 0 010-192h64M304 160h64a96 96 0 010 192h-64M163.29 256h187.42" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="36"/></symbol></svg>
+<div class="bg" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+
+<!-- ===== HOME: input + 2 icons. Saved playlists appear by themselves when they exist. ===== -->
+<main id="homeView" class="home">
+  <img class="logo" src="icon.svg" alt="" width="76" height="76">
+  <div class="link-bar glass">
+    <input id="urlInput" data-focusable type="url" inputmode="url"
+           placeholder=".m3u / .m3u8 / EPG…" title="Playlist link — or EPG (XMLTV) link" aria-label="Playlist or EPG link">
+    <button id="loadUrlBtn" class="icon-btn primary" data-focusable title="Load this link" aria-label="Load this link"><svg class="ic"><use href="#i-load" xlink:href="#i-load"/></svg></button>
+    <label class="icon-btn" data-focusable tabindex="0" id="fileLabel" title="Open a playlist file (.m3u / .m3u8)" aria-label="Open a playlist file">
+      <svg class="ic"><use href="#i-file" xlink:href="#i-file"/></svg>
+      <input id="fileInput" type="file" accept=".m3u,.m3u8,.xml,audio/x-mpegurl,application/vnd.apple.mpegurl,text/xml" hidden>
+    </label>
+  </div>
+  <div id="savedPanel" class="glass lib" hidden><div id="savedList" class="saved"></div></div>
+</main>
+
+<!-- ===== PLAYER: video only. 4 icons, auto-hidden. ===== -->
+<main id="playerView" hidden>
+  <video id="video" playsinline data-focusable tabindex="0" aria-label="Player"></video>
+  <div id="spinner" hidden aria-hidden="true"></div>
+  <audio id="extAudio" hidden></audio>
+
+  <nav id="toolbar" class="toolbar glass" aria-label="Controls">
+    <button id="homeBtn" class="icon-btn" data-focusable title="Back to link input" aria-label="Back to link input"><svg class="ic"><use href="#i-home" xlink:href="#i-home"/></svg></button>
+    <button id="channelsBtn" class="icon-btn" data-focusable title="Channels" aria-label="Channels"><svg class="ic"><use href="#i-list" xlink:href="#i-list"/></svg></button>
+    <button id="settingsBtn" class="icon-btn" data-focusable title="Quality · Audio · Subtitles · Dark/Light" aria-label="Settings"><svg class="ic"><use href="#i-settings" xlink:href="#i-settings"/></svg></button>
+    <button id="fsBtn" class="icon-btn" data-focusable title="Fullscreen" aria-label="Fullscreen"><svg class="ic"><use href="#i-expand" xlink:href="#i-expand"/></svg></button>
+  </nav>
+
+  <div id="nowOverlay" class="now glass">
+    <img id="npLogo" alt="" hidden>
+    <div><b id="npName"></b><small id="npEpg"></small></div>
+  </div>
+
+  <div id="settingsPanel" class="glass pop" hidden>
+    <div class="set-row"><select id="quality" data-focusable title="Video quality" aria-label="Video quality"><option value="-1">Quality · Auto</option></select></div>
+    <div class="set-row"><select id="audioSel" data-focusable title="Audio track" aria-label="Audio track"><option value="-1">Audio · Auto</option></select></div>
+    <div class="set-row"><select id="subSel" data-focusable title="Subtitles" aria-label="Subtitles"><option value="-1">Subtitles · Off</option></select></div>
+    <div class="set-row"><input id="extAudioUrl" data-focusable type="url" inputmode="url" placeholder="Audio link…" title="External audio link — merged & synced with the playing channel" aria-label="External audio link">
+      <button id="mergeBtn" class="icon-btn" data-focusable title="Merge this audio with the playing channel (sync) — press again to unmerge" aria-label="Merge external audio"><svg class="ic"><use href="#i-link" xlink:href="#i-link"/></svg></button></div>
+    <div class="set-row"><button id="themeBtn" class="icon-btn" data-focusable title="Dark / Light mode" aria-label="Dark or Light mode"><svg class="ic"><use href="#i-moon" xlink:href="#i-moon"/></svg></button></div>
+  </div>
+
+  <aside id="drawer" class="drawer glass" hidden>
+    <div class="drawer-head">
+      <input id="search" data-focusable type="search" placeholder="Search…" title="Search channels" aria-label="Search channels">
+      <select id="groupFilter" data-focusable title="Group / category" aria-label="Group"><option value="">All</option></select>
+      <button id="drawerClose" class="icon-btn" data-focusable title="Close channels" aria-label="Close channels"><svg class="ic"><use href="#i-close" xlink:href="#i-close"/></svg></button>
+    </div>
+    <div class="tabs">
+      <button id="tabAll" class="icon-btn tab active" data-focusable title="All channels" aria-label="All channels"><svg class="ic"><use href="#i-all" xlink:href="#i-all"/></svg></button>
+      <button id="tabFav" class="icon-btn tab" data-focusable title="Favorites" aria-label="Favorites"><svg class="ic"><use href="#i-star" xlink:href="#i-star"/></svg></button>
+      <button id="tabRecent" class="icon-btn tab" data-focusable title="Recently watched" aria-label="Recently watched"><svg class="ic"><use href="#i-recent" xlink:href="#i-recent"/></svg></button>
+    </div>
+    <div id="channelList" class="channels" role="listbox" aria-label="Channels"></div>
+    <button id="moreBtn" class="icon-btn wide" data-focusable title="Show more channels" aria-label="Show more channels" hidden><svg class="ic"><use href="#i-more" xlink:href="#i-more"/></svg></button>
+  </aside>
+</main>
+
+<div id="toast" class="toast glass" hidden></div>
+
+<script src="app.js" defer></script>
+</body>
+</html>

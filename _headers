@@ -1,0 +1,34 @@
+# Cloudflare Pages headers (GitHub Pages ignores this file — harmless there).
+# Goal: app updates reach users immediately, static engines cache well,
+# and playlist/stream URLs never leak as Referer to third parties.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+
+/index.html
+  Cache-Control: no-cache
+
+/sw.js
+  Cache-Control: no-cache
+
+/app.js
+  Cache-Control: no-cache
+
+/style.css
+  Cache-Control: no-cache
+
+/hls.min.js
+  Cache-Control: public, max-age=604800
+
+/mpegts.min.js
+  Cache-Control: public, max-age=604800
+
+/icon-192.png
+  Cache-Control: public, max-age=604800
+
+/icon-512.png
+  Cache-Control: public, max-age=604800
+
+/icon.svg
+  Cache-Control: public, max-age=604800
