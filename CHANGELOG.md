@@ -1,5 +1,15 @@
 # Changelog
 
+## v7.5 — 2026-11-04 (external VLC hand-off)
+
+- Android routing is now: **embedded libVLC → external VLC app → web chain**.
+  `vlc-bridge.js` gains `hasExternalVlc()` / `openExternal(url)`; the plugin
+  gains `hasVlc` (PackageManager) and `openExternal` (VIEW intent targeted at
+  `org.videolan.vlc`). If VLC is absent or refuses, playback falls back to
+  the web chain automatically. Requires the `<queries>` manifest entry
+  documented in BUILD_ANDROID.md (Android 11+ package visibility).
+- Web behavior unchanged (both native routes absent); SW cache v15.
+
 ## v7.4 — 2026-11-04 (engineering upgrade)
 
 **Added**

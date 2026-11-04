@@ -56,6 +56,28 @@ public class GlassVlcPlugin extends Plugin {
         });
     }
 
+    /* ---- External VLC app route (no libVLC involved) ----
+       Requires in AndroidManifest.xml (Android 11+ package visibility):
+         <queries><package android:name="org.videolan.vlc"/></queries>       */
+    @PluginMethod public void hasVlc(PluginCall call) {
+        boolean found;
+        try { getContext().getPackageManager().getPackageInfo("org.videolan.vlc", 0); found = true; }
+        catch (Exception e) { found = false; }
+        JSObject r = new JSObject(); r.put("value", found); call.resolve(r);
+    }
+    @PluginMethod public void openExternal(PluginCall call) {
+        String url = call.getString("url");
+        if (url == null) { call.reject("url required"); return; }
+        try {
+            android.content.Intent i = new android.content.Intent(android.content.Intent.ACTION_VIEW);
+            i.setDataAndType(android.net.Uri.parse(url), "video/*");
+            i.setPackage("org.videolan.vlc");
+            i.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+            getContext().startActivity(i);
+            call.resolve();
+        } catch (Exception e) { call.reject("VLC not available: " + e.getMessage()); }
+    }
+
     @PluginMethod public void open(PluginCall call) {
         String url = call.getString("url");
         if (url == null) { call.reject("url required"); return; }

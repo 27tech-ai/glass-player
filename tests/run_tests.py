@@ -132,8 +132,11 @@ async def main():
             except Exception:
                 report("protocol: RTSP honest fast error", False)
 
+        ext = await page.evaluate("window.GPNative ? GPNative.hasExternalVlc() : 'missing'")
+        report("bridge: no external VLC on web (falls through)", ext is False)
         report("page errors during suite", len(errors) == 0, "; ".join(errors[:2]))
         report("android: libVLC bridge lifecycle", None, "needs Android SDK + device — see BUILD_ANDROID.md")
+        report("android: external VLC intent hand-off", None, "needs Android SDK + device with VLC installed")
         await browser.close()
     bad = [r for r in RESULTS if r[1] is False]
     print(f"\n{sum(1 for r in RESULTS if r[1] is True)} PASS · {len(bad)} FAIL · "

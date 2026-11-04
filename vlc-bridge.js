@@ -16,6 +16,14 @@
   const call = (m, args) => { const p = plugin(); if (!p) return Promise.reject(new Error('native unavailable')); ensureListeners(p); return p[m](args || {}); };
   window.GPNative = {
     available(){ try{ return !!(cap && cap.getPlatform && cap.getPlatform() === 'android' && plugin()); }catch{ return false; } },
+    /* External route: is the VLC *app* installed on this Android device?
+       Always false on the web. If true, openExternal() hands the stream URL to
+       VLC with an Android intent — VLC plays it full-screen in its own UI, and
+       Back returns to Glass Player. No libVLC SDK needed for this route. */
+    hasExternalVlc(){ const p = plugin();
+      if (!p || !p.hasVlc || !cap.getPlatform || cap.getPlatform() !== 'android') return Promise.resolve(false);
+      return p.hasVlc().then(r => !!(r && r.value)).catch(() => false); },
+    openExternal(url){ return call('openExternal', { url }); },
     open(url){ return call('open', { url }); },
     play(){ return call('play'); },
     pause(){ return call('pause'); },

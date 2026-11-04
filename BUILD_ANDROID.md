@@ -51,6 +51,31 @@ cd android && ./gradlew assembleDebug     # -> app/build/outputs/apk/debug/app-d
 ./gradlew assembleRelease                 # -> app/build/outputs/apk/release/
 ```
 
+## Two native routes — external VLC app vs embedded libVLC
+
+**Route A — external VLC app (simplest, recommended first).** The plugin's
+`hasVlc` / `openExternal` methods fire an Android intent at the installed VLC
+app (`org.videolan.vlc`); VLC plays the stream full-screen in its own UI, and
+Back returns to Glass Player. Needs NO libVLC Gradle dependency — skip step 2
+if you only want this route — but it DOES need package visibility declared in
+`AndroidManifest.xml` (Android 11+):
+
+```xml
+<queries><package android:name="org.videolan.vlc"/></queries>
+```
+
+Trade-offs: playback leaves the Glass Player UI (no merge mode, no built-in
+recovery/diagnostics on that route), and VLC must be installed — if it isn't,
+the intent rejects and the player automatically falls back to the web chain.
+
+**Route B — embedded libVLC (full control).** Steps 2–4 below. Playback
+stays inside the app's own UI; tracks/speed/fit/recovery all remain ours.
+Heavier APK, more moving parts.
+
+Routing order in `app.js` is: embedded libVLC → external VLC app → web
+chain → honest protocol error. On the web both native routes are absent and
+nothing changes.
+
 ## How playback routes
 
 `vlc-bridge.js` (already loaded by index.html) is inert on the web. In the

@@ -60,8 +60,16 @@ detects what it can and reports honestly; the fix is the native engine.
 - `vlc-bridge.js` exposes `window.GPNative` (open/play/pause/stop/seek/
   volume/mute/rate/fit/hw-decoding/track selection). On the web
   `available()` is false and the file is inert.
-- `app.js`: if `GPNative.available()`, `play()` hands the channel to libVLC
-  and the web chain never runs; `destroyEngines()` also stops native.
+- `app.js` routing order: **embedded libVLC → external VLC app → web chain →
+  honest protocol error.** If `GPNative.available()`, `play()` hands the
+  channel to libVLC and the web chain never runs; `destroyEngines()` also
+  stops native.
+- **External VLC app route**: `hasExternalVlc()` asks the plugin whether the
+  VLC app (`org.videolan.vlc`) is installed; `openExternal(url)` fires an
+  Android VIEW intent at it. VLC plays full-screen in its own UI (merge mode
+  and built-in recovery do not apply on this route); if the intent rejects,
+  the player falls through to the web chain automatically. This route needs
+  no libVLC dependency — see BUILD_ANDROID.md.
 - `android-plugin/GlassVlcPlugin.java`: Capacitor plugin implementing the
   full method surface on libVLC, with a SurfaceView under the WebView and
   `playing`/`error`/`buffering` events bridged back to the page.

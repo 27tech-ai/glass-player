@@ -24,6 +24,13 @@ fixture servers (app + ffmpeg-generated HLS/MP4), no internet involved.
 
 **13 PASS · 0 FAIL · 1 NOT TESTABLE**
 
+## Run — 2026-11-04 (v7.5, external VLC hand-off)
+
+Same suite plus: `bridge: no external VLC on web (falls through)` — PASS.
+Android intent hand-off itself: NOT TESTABLE (needs a device with VLC).
+
+**14 PASS · 0 FAIL · 2 NOT TESTABLE**
+
 Extended local suites (same day, project test bench): fallback chain incl.
 CORS-blocked-via-proxy and dead-channel reporting (5/5 PASS), Cloudflare-1003
 simulation with IP playlist + IP channel via nip.io alias (PASS), settings
